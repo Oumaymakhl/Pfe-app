@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  pool: 5
+  username: postgres # OU votre nom d'utilisateur
+  password: ouma123
+
+development:
+  <<: *default
+  database: api_app_development
+
+test:
+  <<: *default
+  database: api_app_test
+
+production:
+  <<: *default
+  database: api_app_production
+  username: api_app
+  password: <%= ENV["API_APP_DATABASE_PASSWORD"] %>
